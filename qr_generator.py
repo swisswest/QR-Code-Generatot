@@ -5,7 +5,6 @@ from qrcode.image.pil import PilImage
 from urllib.parse import urlparse
 
 
-# Default colors
 qr_color = "#000000"
 bg_color = "#FFFFFF"
 
@@ -71,7 +70,6 @@ def generate_qr():
         messagebox.showerror("Error", str(e))
 
 
-# --- GUI ---
 root = tk.Tk()
 root.title("QR Code Generator")
 root.geometry("480x300")
@@ -81,18 +79,15 @@ frame = tk.Frame(root, padx=20, pady=20)
 frame.pack(fill="both", expand=True)
 
 
-# URL input
 tk.Label(frame, text="Enter URL:").pack(anchor="w")
 entry_data = tk.Entry(frame, width=45)
 entry_data.pack(fill="x", pady=5)
 
 
-# COLOR SECTION
 color_frame = tk.Frame(frame)
 color_frame.pack(pady=15)
 
 
-### QR COLOR ROW ###
 tk.Label(color_frame, text="QR Code Color:").grid(row=0, column=0, padx=5, sticky="w")
 
 btn_qr_color = tk.Button(color_frame, text="Pick", width=10, command=choose_qr_color)
@@ -102,7 +97,6 @@ qr_color_preview = tk.Label(color_frame, bg=qr_color, width=10, height=1, relief
 qr_color_preview.grid(row=0, column=2, padx=5)
 
 
-### BACKGROUND COLOR ROW ###
 tk.Label(color_frame, text="Background Color:").grid(row=1, column=0, padx=5, sticky="w")
 
 btn_bg_color = tk.Button(color_frame, text="Pick", width=10, command=choose_bg_color)
@@ -112,7 +106,6 @@ bg_color_preview = tk.Label(color_frame, bg=bg_color, width=10, height=1, relief
 bg_color_preview.grid(row=1, column=2, padx=5)
 
 
-# Generate Button
 tk.Button(frame, text="Generate & Save QR Code", command=generate_qr).pack(pady=15)
 
 
